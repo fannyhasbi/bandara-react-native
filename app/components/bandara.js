@@ -1,9 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import {List, ListItem, Button} from 'react-native-elements';
+import {List, ListItem, Button, FormLabel, FormInput} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
-
-import Title from './title';
 
 class Bandara extends React.Component {
   constructor(props){
@@ -47,8 +45,41 @@ class Bandara extends React.Component {
 }
 
 class TambahBandara extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      kode: '',
+      nama: '',
+      kota: '',
+      negara: ''
+    }
+  }
+
+  kirim_form(){
+    // nanti
+  }
+
   render(){
-    return <Text>Ini tambah bandara</Text>
+    return (
+      <View>
+        <FormLabel>Kode Bandara</FormLabel>
+        <FormInput onChangeText={(value) => this.setState({kode: value})} />
+
+        <FormLabel>Nama</FormLabel>
+        <FormInput onChangeText={(value) => this.setState({nama: value})} />
+
+        <FormLabel>Kota</FormLabel>
+        <FormInput onChangeText={(value) => this.setState({kota: value})} />
+
+        <FormLabel>Negara</FormLabel>
+        <FormInput onChangeText={(value) => this.setState({negara: value})} />
+
+        <Button
+          title="Tambah"
+          onPress={() => this.kirim_form()}
+        />
+      </View>
+    );
   }
 }
 
@@ -71,7 +102,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 20
   }
-})
+});
 
 
 export default BandaraScreen;
