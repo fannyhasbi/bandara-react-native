@@ -3,18 +3,30 @@ import { Text, View, StyleSheet } from 'react-native';
 import {List, ListItem, Button, FormLabel, FormInput} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 
+import DetailBandara from './detailbandara';
+
 class Bandara extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       data_bandara : [
         {
-          nama: 'A',
-          tempat: 'Jakarta'
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
         },
         {
-          nama: 'B',
-          tempat: 'Semarang'
+          kode: 'B001',
+          nama: 'Bandar Udara Internasional Sultan Aji Muhammad Sulaiman',
+          kota: 'Balikpapan',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'J001',
+          nama: 'Bandar Udara Internasional Soekarno-Hatta',
+          kota: 'Jakarta',
+          negara: 'Indonesia'
         }
       ]
     };
@@ -33,7 +45,14 @@ class Bandara extends React.Component {
               <ListItem
                 key={i}
                 title={l.nama}
-                subtitle={l.tempat}
+                subtitle={l.kota}
+                leftIcon={{name: 'place'}}
+                onPress={() => this.props.navigation.navigate('DetailBandara', {
+                  kode: l.kode,
+                  nama: l.nama,
+                  kota: l.kota,
+                  negara: l.negara
+                })}
               />
             ))
           }
@@ -94,6 +113,12 @@ const BandaraScreen = createStackNavigator({
     screen: TambahBandara,
     navigationOptions: {
       title: 'Tambah Bandara'
+    }
+  },
+  DetailBandara: {
+    screen: DetailBandara,
+    navigationOptions: {
+      title: 'Detail Bandara'
     }
   }
 });
