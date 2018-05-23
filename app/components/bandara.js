@@ -4,6 +4,7 @@ import {List, ListItem, Button, FormLabel, FormInput} from 'react-native-element
 import {createStackNavigator} from 'react-navigation';
 
 import DetailBandara from './detailbandara';
+import EditBandara from './editbandara';
 
 class Bandara extends React.Component {
   constructor(props){
@@ -119,6 +120,12 @@ const BandaraScreen = createStackNavigator({
     screen: DetailBandara,
     navigationOptions: {
       title: 'Detail Bandara'
+    }
+  },
+  EditBandara: {
+    screen: EditBandara,
+    navigationOptions: {
+      title: 'Edit Bandara'
     }
   }
 });

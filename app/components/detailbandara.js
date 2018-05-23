@@ -56,6 +56,7 @@ export default class DetailBandara extends React.Component {
             borderRadius: 0, marginLeft: 20, marginRight: 20, marginBottom: 10, marginTop: 20
           }}
           title='Edit'
+          onPress={() => this.props.navigation.navigate('EditBandara', {...this.props.navigation.state.params})}
         />
 
         <Button
