@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, Button, StyleSheet } from 'react-native';
-import {List, ListItem} from 'react-native-elements';
+import { Text, View, StyleSheet } from 'react-native';
+import {List, ListItem, Button} from 'react-native-elements';
+import {createStackNavigator} from 'react-navigation';
 
 import Title from './title';
 
-export default class BandaraScreen extends React.Component {
+class Bandara extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -23,9 +24,11 @@ export default class BandaraScreen extends React.Component {
 
   render(){
     return (
-      <View>
-        <Title text="Daftar Bandara" />
-        
+      <View style={styles.container}>
+        <Button
+          title="Tambah"
+          onPress={() => this.props.navigation.navigate('TambahBandara')}
+        />
         <List>
           {
             this.state.data_bandara.map((l, i) => (
@@ -42,3 +45,33 @@ export default class BandaraScreen extends React.Component {
     );
   }
 }
+
+class TambahBandara extends React.Component {
+  render(){
+    return <Text>Ini tambah bandara</Text>
+  }
+}
+
+const BandaraScreen = createStackNavigator({
+  Bandara: {
+    screen: Bandara,
+    navigationOptions: {
+      title: 'Daftar Bandara'
+    }
+  },
+  TambahBandara: {
+    screen: TambahBandara,
+    navigationOptions: {
+      title: 'Tambah Bandara'
+    }
+  }
+});
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20
+  }
+})
+
+
+export default BandaraScreen;
