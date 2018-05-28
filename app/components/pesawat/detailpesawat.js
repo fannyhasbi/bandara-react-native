@@ -6,7 +6,7 @@ export default class DetailPesawat extends React.Component {
   deleteClick(){
     Alert.alert(
       '',
-      'Apakah yakin ingin menghapus bandara ini?',
+      'Apakah yakin ingin menghapus pesawat ini?',
       [
         {
           text: 'Tidak'
@@ -36,15 +36,21 @@ export default class DetailPesawat extends React.Component {
             containerStyle={styles.itemContainer}
           />
           <ListItem
-            title="Kota"
+            title="Maskapai"
             hideChevron={true}
-            rightTitle={this.props.navigation.getParam('kota')}
+            rightTitle={this.props.navigation.getParam('maskapai')}
             containerStyle={styles.itemContainer}
           />
           <ListItem
-            title="Negara"
+            title="Kapasitas"
             hideChevron={true}
-            rightTitle={this.props.navigation.getParam('negara')}
+            rightTitle={this.props.navigation.getParam('kapasitas').toString()}
+            containerStyle={styles.itemContainer}
+          />
+          <ListItem
+            title="Pabrik"
+            hideChevron={true}
+            rightTitle={this.props.navigation.getParam('pabrik')}
             containerStyle={styles.itemContainer}
           />
         </List>
@@ -56,7 +62,7 @@ export default class DetailPesawat extends React.Component {
             borderRadius: 0, marginLeft: 20, marginRight: 20, marginBottom: 10, marginTop: 20
           }}
           title='Edit'
-          onPress={() => this.props.navigation.navigate('EditBandara', {...this.props.navigation.state.params})}
+          onPress={() => this.props.navigation.navigate('EditPesawat', {...this.props.navigation.state.params})}
         />
 
         <Button
