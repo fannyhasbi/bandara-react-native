@@ -4,6 +4,7 @@ import {List, ListItem, Button, FormLabel, FormInput, Divider} from 'react-nativ
 import {createStackNavigator} from 'react-navigation';
 
 import DetailPesawat from './pesawat/detailpesawat';
+import EditPesawat from './pesawat/editpesawat';
 
 class Pesawat extends React.Component {
   constructor(props){
@@ -141,7 +142,13 @@ const PesawatScreen = createStackNavigator({
     navigationOptions: {
       title: 'Detail Pesawat'
     }
-  } 
+  },
+  EditPesawat: {
+    screen: EditPesawat,
+    navigationOptions: {
+      title: 'Edit Pesawat'
+    }
+  }
 });
 
 const styles = StyleSheet.create({
