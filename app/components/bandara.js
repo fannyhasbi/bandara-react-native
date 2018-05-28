@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import {List, ListItem, Button, FormLabel, FormInput} from 'react-native-elements';
+import { Text, View, ScrollView, StyleSheet } from 'react-native';
+import {List, ListItem, Button, FormLabel, FormInput, Divider} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 
-import DetailBandara from './detailbandara';
-import EditBandara from './editbandara';
+import DetailBandara from './bandara/detailbandara';
+import EditBandara from './bandara/editbandara';
 
 class Bandara extends React.Component {
   constructor(props){
@@ -28,6 +28,84 @@ class Bandara extends React.Component {
           nama: 'Bandar Udara Internasional Soekarno-Hatta',
           kota: 'Jakarta',
           negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
+        },
+        {
+          kode: 'B000',
+          nama: 'Bandar Udara Internasional Ngurah Rai',
+          kota: 'Bali',
+          negara: 'Indonesia'
         }
       ]
     };
@@ -40,24 +118,29 @@ class Bandara extends React.Component {
           title="Tambah"
           onPress={() => this.props.navigation.navigate('TambahBandara')}
         />
-        <List>
-          {
-            this.state.data_bandara.map((l, i) => (
-              <ListItem
-                key={i}
-                title={l.nama}
-                subtitle={l.kota}
-                leftIcon={{name: 'place'}}
-                onPress={() => this.props.navigation.navigate('DetailBandara', {
-                  kode: l.kode,
-                  nama: l.nama,
-                  kota: l.kota,
-                  negara: l.negara
-                })}
-              />
-            ))
-          }
-        </List>
+
+        <Divider style={styles.batas} />
+
+        <ScrollView contentContainerStyle={styles.scroll}>
+          <List>
+            {
+              this.state.data_bandara.map((l, i) => (
+                <ListItem
+                  key={i}
+                  title={l.nama}
+                  subtitle={l.kota}
+                  leftIcon={{name: 'place'}}
+                  onPress={() => this.props.navigation.navigate('DetailBandara', {
+                    kode: l.kode,
+                    nama: l.nama,
+                    kota: l.kota,
+                    negara: l.negara
+                  })}
+                />
+              ))
+            }
+          </List>
+        </ScrollView>
         
       </View>
     );
@@ -133,6 +216,14 @@ const BandaraScreen = createStackNavigator({
 const styles = StyleSheet.create({
   container: {
     paddingTop: 20
+  },
+  batas: {
+    marginTop: 20,
+    paddingTop: 0,
+    height: 0
+  },
+  scroll: {
+    paddingVertical: 0
   }
 });
 

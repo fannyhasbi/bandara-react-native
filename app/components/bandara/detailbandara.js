@@ -23,7 +23,7 @@ export default class DetailBandara extends React.Component {
     return (
       <Card
         title={this.props.navigation.getParam('nama')}
-        image={require('../../img/flights.jpg')}
+        image={require('../../../img/flights.jpg')}
       >
 
         <List
