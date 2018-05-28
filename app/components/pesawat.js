@@ -86,7 +86,9 @@ class TambahPesawat extends React.Component {
     this.state = {
       kode: '',
       nama: '',
+      maskapai: '',
       kapasitas: '',
+      pabrik: '',
     }
   }
 
@@ -103,8 +105,14 @@ class TambahPesawat extends React.Component {
         <FormLabel>Nama</FormLabel>
         <FormInput onChangeText={(value) => this.setState({nama: value})} />
 
+        <FormLabel>Maskapai</FormLabel>
+        <FormInput onChangeText={(value) => this.setState({maskapai: value})} />
+ 
         <FormLabel>Kapasitas</FormLabel>
         <FormInput onChangeText={(value) => this.setState({kota: value})} />
+
+        <FormLabel>Pabrik</FormLabel>
+        <FormInput onChangeText={(value) => this.setState({pabrik: value})} />
 
         <Button
           title="Tambah"
