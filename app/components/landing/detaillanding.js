@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Card, List, ListItem} from 'react-native-elements';
 
-export default class DetailTakeoff extends React.Component {
+export default class DetailLanding extends React.Component {
   render(){
     return (
       <Card
@@ -26,9 +26,9 @@ export default class DetailTakeoff extends React.Component {
             containerStyle={styles.itemContainer}
           />
           <ListItem
-            title="Kota Tujuan"
+            title="Kota Asal"
             hideChevron={true}
-            rightTitle={this.props.navigation.getParam('tujuan')}
+            rightTitle={this.props.navigation.getParam('asal')}
             containerStyle={styles.itemContainer}
           />
           <ListItem

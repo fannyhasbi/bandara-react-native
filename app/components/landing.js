@@ -3,6 +3,8 @@ import { Text, View, ScrollView } from 'react-native';
 import {List, ListItem} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 
+import DetailLanding from './landing/detaillanding';
+
 class Landing extends React.Component {
   constructor(props){
     super(props);
@@ -50,6 +52,15 @@ class Landing extends React.Component {
                 title={l.maskapai + ' - ' + l.pesawat}
                 subtitle={l.asal}
                 leftIcon={{name: 'flight-land'}}
+                onPress={() => this.props.navigation.navigate('DetailLanding', {
+                  kode_pesawat: l.kode_pesawat,
+                  pesawat: l.pesawat,
+                  maskapai: l.maskapai,
+                  asal: l.asal,
+                  bandara: l.bandara,
+                  penumpang: l.penumpang,
+                  waktu: l.waktu,
+                })}
               />
             ))
           }
@@ -65,6 +76,12 @@ const LandingScreen = createStackNavigator({
     screen: Landing,
     navigationOptions: {
       title: 'Data Landing'
+    }
+  },
+  DetailLanding: {
+    screen: DetailLanding,
+    navigationOptions: {
+      title: 'Detail Landing'
     }
   }
 });
