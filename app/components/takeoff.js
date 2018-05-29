@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import {List, ListItem} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 
@@ -7,18 +7,33 @@ class TakeOff extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      data_takeoff : [
+      datas : [
         {
-          tujuan: 'A',
-          waktu: '2016',
-          kode_pesawat: 'asc',
-          penumpang: 126
+          kode_pesawat: 'PKGSI',
+          pesawat: 'Boeing 737-800',
+          maskapai: 'Garuda Indonesia',
+          tujuan: 'Jepara',
+          bandara: 'Bandar Udara Dewadaru',
+          penumpang: 126,
+          waktu: '1 Nov \'17 06:22',
         },
         {
-          tujuan: 'B',
-          waktu: '2017',
-          kode_pesawat: 'das',
-          penumpang: 324
+          kode_pesawat: 'PXAXO',
+          pesawat: 'Airbus A320-200',
+          maskapai: 'AirAsia',
+          tujuan: 'Bali',
+          bandara: 'Bandar Udara Internasional Ngurah Rai',
+          penumpang: 332,
+          waktu: '23 Nov \'17 09:30',
+        },
+        {
+          kode_pesawat: 'PKGJL',
+          pesawat: 'Airbus A330-243',
+          maskapai: 'Garuda Indonesia',
+          tujuan: 'Bali',
+          bandara: 'Bandar Udara Internasional Ngurah Rai',
+          penumpang: 333,
+          waktu: '1 Nov \'17 09:34',
         }
       ]
     };
@@ -26,20 +41,30 @@ class TakeOff extends React.Component {
 
   render(){
     return (
-      <View>
+      <ScrollView>
         <List>
           {
-            this.state.data_takeoff.map((l, i) => (
+            this.state.datas.map((l, i) => (
               <ListItem
                 key={i}
-                title={l.tujuan}
-                subtitle={l.kode_pesawat}
+                title={l.maskapai + ' - ' + l.pesawat}
+                subtitle={l.tujuan}
+                leftIcon={{name: 'flight-takeoff'}}
+                onPress={() => this.props.navigation.navigate('DetailTakeoff', {
+                  kode_pesawat: l.kode_pesawat,
+                  pesawat: l.pesawat,
+                  maskapai: l.maskapai,
+                  tujuan: l.tujuan,
+                  bandara: l.bandara,
+                  penumpang: l.penumpang,
+                  waktu: l.waktu,
+                })}
               />
             ))
           }
         </List>
         
-      </View>
+      </ScrollView>
     );
   }
 }
