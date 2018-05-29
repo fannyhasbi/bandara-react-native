@@ -3,6 +3,8 @@ import { Text, View, ScrollView } from 'react-native';
 import {List, ListItem} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 
+import DetailTakeoff from './takeoff/detailtakeoff';
+
 class TakeOff extends React.Component {
   constructor(props){
     super(props);
@@ -74,6 +76,12 @@ const TakeOffScreen = createStackNavigator({
     screen: TakeOff,
     navigationOptions: {
       title: 'Data Take Off'
+    }
+  },
+  DetailTakeoff: {
+    screen: DetailTakeoff,
+    navigationOptions: {
+      title: 'Detail Take Off'
     }
   }
 });
